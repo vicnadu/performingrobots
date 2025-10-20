@@ -23,4 +23,7 @@ This week I am travelling during the Fall break, so no work will be done in the 
 
 ## 23/10/2025
 
+To-do this week: finish the robots body using cardboard, fix the servo motor, build and attach the crank, brainstorm ways to build the "screen" and the opening of the robot
+
 Pictures:
+
