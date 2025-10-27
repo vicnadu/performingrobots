@@ -24,10 +24,22 @@ This week I am travelling during the Fall break, so no work will be done in the 
 ## 23/10/2025
 
 This week we have:
-* Finished building the robot's body using cardboard
-* Replaced the servo motor with a working one
+* Finished building most of the robot's body using cardboard
+* Replaced the servo motor with a working one (the first one was most likely not working because of the extenders, not because of the motor itself)
 * Attached the crank to the servo motor
-* Attached the light to the top of the robot
+* Attached the glass dome to the top of the robot to use the NeoPixels lights
+
+What we will accomplish by this Thursday (30/10):
+* Connect the NeoPixels lights to the Arduino and stick to the glass dome
+* Build the "reels screen" functionality of the robot using stepper motors (need to figure out first how to do it with the Professor's help)
+
+Features that remain to be implemented:
+* Reel screen
+* Document dispenser
 
 Pictures:
+
+## 30/10/2025
+
+
 
