@@ -45,15 +45,15 @@ This week we have used the laser cut for the cardboard in the worm gear motor
 
 ## 06/11/2025
 
-* What did you accomplish for today November 6?
+What did you accomplish for today November 6?
 * Finished the slot machine screen feature using a worm gear motor and laser cut cardboard
 
-* What features remain to be implemented?
+What features remain to be implemented?
 * The dispenser feature (if we decide to build it)
 * Adding the Music Maker Shield
 * Using the nRF radio system to control at least one feature
 
-* What will you accomplish for next Thursday November 13?
+What will you accomplish for next Thursday November 13?
 * Print and glue the symbols to the slot machine screen functionality
 * Make the play audio files using ElevenLabs
 * Sleep 8 hours per day
