@@ -37,7 +37,11 @@
                       https://github.com/michaelshiloh/resourcesForClasses/blob/master/kicad/nRF_servo_Mega    
                       https://github.com/michaelshiloh/resourcesForClasses/blob/master/kicad/nRFControlPanel
                       
-   [USER] Nov 2025 - Integrated servo crank sweep functionality into receiver case 3.
+   [USER] Nov 2025 - Integrated servo crank sweep functionality.
+                     Simplified to single state.
+                     Added non-blocking servo logic.
+                     Added non-blocking transmitter logic.
+                     Made crank positions easy to edit.
 */
 
 
@@ -58,11 +62,11 @@
 
 // CHANGEHERE
 // For the transmitter
-const int NRF_CE_PIN = A4, NRF_CSN_PIN = A5;
+// const int NRF_CE_PIN = A4, NRF_CSN_PIN = A5;
 
 // CHANGEHERE
 // for the receiver
-//const int NRF_CE_PIN = A11, NRF_CSN_PIN = A15;
+const int NRF_CE_PIN = A11, NRF_CSN_PIN = A15;
 
 // nRF 24L01 pin   name
 //          1      GND
@@ -346,6 +350,18 @@ void clearData() {
 #define PSTR // Make Arduino Due happy
 #endif
 
+// *** MODIFICATION: Add easy-to-edit variables for crank tuning ***
+//
+// This is your "up" or "resting" position. 0 is highest, 180 is lowest.
+const int CRANK_REST_POSITION = 90;
+//
+// This is your "down" or "pulled" position.
+const int CRANK_PULL_POSITION = 180;
+//
+// This controls the speed. Smaller number = faster.
+const int crankMoveDelay = 10;     // ms between crank steps
+
+
 // Additional pin usage for receiver
 
 // Adafruit music maker shield
@@ -402,10 +418,11 @@ const int GRABBER_GRAB = 180;
 
 // *** MODIFICATION: Add variables for non-blocking crank pull ***
 bool isCrankPulling = false;        // True if the pull is in progress
-int currentCrankAngle = 90;        // Current angle of the crank
-bool crankPullingDown = true;      // Direction of pull (true = 90->180)
+bool isReturningToRest = false;     // True if on the return trip
+int currentCrankAngle = CRANK_REST_POSITION; // Current angle of the crank
+int crankPullDirection = 1;                  // Direction of pull (1 = forward, -1 = reverse)
 unsigned long lastCrankMoveTime = 0; // Timestamp of the last crank move
-const int crankMoveDelay = 15;     // ms between crank steps
+
 
 void setup() {
   Serial.begin(9600);
@@ -464,7 +481,7 @@ void setupMusicMakerShield() {
 void setupServoMotors() {
   // *** MODIFICATION: Use new crank name to attach ***
   crank.attach(CRANK_SERVO_PIN); // Attaches the servo on pin 20
-  crank.write(90); // Sets initial position to 90 degrees
+  crank.write(CRANK_REST_POSITION); // Sets initial position
   //  antenna.attach(ANTENNA_SERVO_PIN);
   //  tail.attach(TAIL_SERVO_PIN);
   //  grabber.attach(GRABBER_SERVO_PIN);
@@ -503,7 +520,7 @@ void flashNeoPixels() {
   //  pixels.show();
 }
 
-// *** MODIFICATION: Add new function to update crank pull without blocking ***
+// *** MODIFICATION: Fixed logic in updateCrankPull ***
 void updateCrankPull() {
   // Only run this code if the crank pull is active
   if (!isCrankPulling) {
@@ -514,24 +531,35 @@ void updateCrankPull() {
   if (millis() - lastCrankMoveTime >= crankMoveDelay) {
     lastCrankMoveTime = millis(); // Update the timestamp
 
-    if (crankPullingDown) {
-      // We are moving from 90 to 180
-      currentCrankAngle++;
-      crank.write(currentCrankAngle);
+    // Move the crank one step in the current direction
+    currentCrankAngle += crankPullDirection;
+    crank.write(currentCrankAngle);
 
-      if (currentCrankAngle >= 180) {
-        // Reached the end, reverse direction
-        crankPullingDown = false;
+    // --- Check for Reversal or Stop ---
+    
+    // Are we on the first leg (moving TO PULL)?
+    if (isReturningToRest == false) {
+      // Check if we have arrived at the PULL position
+      // (Handle both 0->90 and 180->90)
+      if ( (crankPullDirection > 0 && currentCrankAngle >= CRANK_PULL_POSITION) ||    
+           (crankPullDirection < 0 && currentCrankAngle <= CRANK_PULL_POSITION) )     
+      {
+          currentCrankAngle = CRANK_PULL_POSITION; // Snap to exact position
+          crankPullDirection *= -1; // Reverse direction (1 becomes -1, -1 becomes 1)
+          isReturningToRest = true; // We are now on the return trip
       }
-    } else {
-      // We are moving from 180 back to 90
-      currentCrankAngle--;
-      crank.write(currentCrankAngle);
-
-      if (currentCrankAngle <= 90) {
-        // Reached the start, pull is finished
-        isCrankPulling = false; // Stop the pull
-        Serial.println(F("Crank pull finished."));
+    } 
+    // Are we on the second leg (moving TO REST)?
+    else {
+      // Check if we have arrived at the REST position
+      // (Handle both 90->0 and 90->180)
+      if ( (crankPullDirection > 0 && currentCrankAngle >= CRANK_REST_POSITION) || 
+           (crankPullDirection < 0 && currentCrankAngle <= CRANK_REST_POSITION) )  
+      {
+          currentCrankAngle = CRANK_REST_POSITION; // Snap to exact position
+          isCrankPulling = false; // Stop the pull
+          // We reset isReturningToRest in case 0
+          Serial.println(F("Crank pull finished."));
       }
     }
   }
@@ -561,8 +589,16 @@ void loop() {
           // If not pulling, start a new pull.
           Serial.println(F("Activating crank pull..."));
           isCrankPulling = true;     // Set the flag
-          crankPullingDown = true;   // Start by moving down (90->180)
-          currentCrankAngle = 90;  // Start at 90
+          isReturningToRest = false; // We are starting, so we are NOT returning
+          
+          // Set the initial direction based on REST vs PULL position
+          if (CRANK_REST_POSITION < CRANK_PULL_POSITION) {
+             crankPullDirection = 1; // Move 0 -> 90
+          } else {
+             crankPullDirection = -1; // Move 180 -> 90
+          }
+          
+          currentCrankAngle = CRANK_REST_POSITION; // Start at rest
           lastCrankMoveTime = millis(); // Set the timer
         }
         break;
@@ -570,11 +606,11 @@ void loop() {
       default:
         Serial.println(F("Invalid option"));
     }
+
+
+
   }
 }  // end of loop()
 // end of receiver code
 // CHANGEHERE
-
-
 // Uncomment this to activate the receiver code
-}
