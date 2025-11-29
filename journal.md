@@ -1,7 +1,7 @@
 ## 18/09/2025
 This week we have finished building and soldering the entire robot's wheel base, as well as sucessfully testing it with code.
 
-![Finished wheel base](github.com/vicnadu/performingrobots/blob/main/images/IMG_0123.jpg?raw=true)
+![Finished wheel base](https://github.com/vicnadu/performingrobots/blob/main/images/IMG_0123.jpg)
 
 ## 25/09/2025
 This week we have drilled a 1.5 meter plank of wood into the base of the robot, which will serve as the foundation of the robot's body.
