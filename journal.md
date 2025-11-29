@@ -1,6 +1,8 @@
 ## 18/09/2025
 This week we have finished building and soldering the entire robot's wheel base, as well as sucessfully testing it with code.
 
+![Finished wheel base](github.com/vicnadu/performingrobots/blob/main/images/IMG_0123.jpg?raw=true)
+
 ## 25/09/2025
 This week we have drilled a 1.5 meter plank of wood into the base of the robot, which will serve as the foundation of the robot's body.
 
@@ -74,5 +76,9 @@ This week we have:
 * Decorated most of the robot
 
 ## 04/12/2025
+
+This week we will:
+* Add extra neopixels lights to the front and sides of the robot
+* Finish decorating the robot
 
 ## 09/12/2025
