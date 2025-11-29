@@ -1,22 +1,14 @@
 ## 18/09/2025
 This week we have finished building and soldering the entire robot's wheel base, as well as sucessfully testing it with code.
 
-Pictures:
-
 ## 25/09/2025
 This week we have drilled a 1.5 meter plank of wood into the base of the robot, which will serve as the foundation of the robot's body.
-
-Pictures:
 
 ## 02/10/2025
 This week we have build the lower body of the robot using cardboard. We have also glued a small piece of wood in the side of the cardboard, which is where the servo motor will be located at. The next stage will be to build the top of the body, which will have the attached servo motor for the lever, and ideally the "screen" of the slot machine.
 
-Pictures:
-
 ## 09/10/2025
 This week we have attached the servo motor to the wood piece in the body of our robot, which will serve as the lever of the robot. For now we are using a temporary prototype of the lever made out of glued styrofoam, but we are planning on building the actual lever soon, possibly made out of wood.
-
-Pictures:
 
 ## 16/10/2025
 This week I am travelling during the Fall break, so no work will be done in the body of the robot.
@@ -37,8 +29,6 @@ Features that remain to be implemented:
 * Reel screen
 * Document dispenser
 
-Pictures:
-
 ## 30/10/2025
 
 This week we have used the laser cut for the cardboard in the worm gear motor
@@ -58,3 +48,31 @@ What will you accomplish for next Thursday November 13?
 * Make the play audio files using ElevenLabs
 * Sleep 8 hours per day
 * Meditate
+
+## 13/11/2025
+
+This week I have:
+* Fixed the issue with the cranking being too loose (it kept falling on its own)
+* Modyfing the crank code
+* Modified some lines in the play
+* Tested and generated lines using ElevenLabs
+* Ordered glitter paper for the reels
+
+## 20/11/2025
+
+This week I have:
+* Glued the glitter paper in the reels, but the end result ended up not being good enough, so it will be trashed
+* Generated all current voice lines
+
+## 27/11/2025
+
+This week we have:
+* Generated all voice lines
+* Laser cut new cardboard for the reels (old one was trashed)
+* Replaced the reels with another faster motor
+* Sticked the new glitter paper to the reels
+* Decorated most of the robot
+
+## 04/12/2025
+
+## 09/12/2025
