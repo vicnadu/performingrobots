@@ -6,11 +6,17 @@ This week we have finished building and soldering the entire robot's wheel base,
 ## 25/09/2025
 This week we have drilled a 1.5 meter plank of wood into the base of the robot, which will serve as the foundation of the robot's body.
 
+![Attached plank of wood](https://github.com/vicnadu/performingrobots/blob/main/images/IMG_0204.jpg)
+
 ## 02/10/2025
 This week we have build the lower body of the robot using cardboard. We have also glued a small piece of wood in the side of the cardboard, which is where the servo motor will be located at. The next stage will be to build the top of the body, which will have the attached servo motor for the lever, and ideally the "screen" of the slot machine.
 
+![Attached plank of wood](https://github.com/vicnadu/performingrobots/blob/main/images/IMG_0204.jpg)
+
 ## 09/10/2025
 This week we have attached the servo motor to the wood piece in the body of our robot, which will serve as the lever of the robot. For now we are using a temporary prototype of the lever made out of glued styrofoam, but we are planning on building the actual lever soon, possibly made out of wood.
+
+![Temporary crank](https://github.com/vicnadu/performingrobots/blob/main/images/IMG_0217.jpg)
 
 ## 16/10/2025
 This week I am travelling during the Fall break, so no work will be done in the body of the robot.
@@ -31,9 +37,13 @@ Features that remain to be implemented:
 * Reel screen
 * Document dispenser
 
+![Crank](https://github.com/vicnadu/performingrobots/blob/main/images/IMG_1436.jpg)
+
 ## 30/10/2025
 
 This week we have used the laser cut for the cardboard in the worm gear motor
+
+![Laser cutting](https://github.com/vicnadu/performingrobots/blob/main/images/IMG_1509.jpg)
 
 ## 06/11/2025
 
@@ -51,6 +61,12 @@ What will you accomplish for next Thursday November 13?
 * Sleep 8 hours per day
 * Meditate
 
+![Reels](https://github.com/vicnadu/performingrobots/blob/main/images/A36167A8-9646-4D91-9022-B0EBA78A2B85.jpg)
+
+![Reels](https://github.com/vicnadu/performingrobots/blob/main/images/IMG_1656.jpg)
+
+![Reels](https://github.com/vicnadu/performingrobots/blob/main/images/F6F61E56-FFAE-44C0-9102-75D54A1A2E20.jpg)
+
 ## 13/11/2025
 
 This week I have:
@@ -60,11 +76,15 @@ This week I have:
 * Tested and generated lines using ElevenLabs
 * Ordered glitter paper for the reels
 
+![Crank](https://github.com/vicnadu/performingrobots/blob/main/images/IMG_1796.jpg)
+
 ## 20/11/2025
 
 This week I have:
-* Glued the glitter paper in the reels, but the end result ended up not being good enough, so it will be trashed
+* Glued the glitter paper in the reels, but the end result ended up not being good enough, so it will be replaced
 * Generated all current voice lines
+
+![Reels](https://github.com/vicnadu/performingrobots/blob/main/images/01EED2BB-CF04-41B3-9B44-42409349D34D.jpg)
 
 ## 27/11/2025
 
@@ -74,6 +94,8 @@ This week we have:
 * Replaced the reels with another faster motor
 * Sticked the new glitter paper to the reels
 * Decorated most of the robot
+
+![Reels](https://github.com/vicnadu/performingrobots/blob/main/images/IMG_2036.JPG)
 
 ## 04/12/2025
 
