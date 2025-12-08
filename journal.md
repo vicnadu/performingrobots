@@ -99,8 +99,13 @@ This week we have:
 
 ## 04/12/2025
 
-This week we will:
-* Add extra neopixels lights to the front and sides of the robot
-* Finish decorating the robot
+This week we have:
+* Added extra neopixels lights to the front and side of the robot
+* Generated final voice lines using ElevenLabs
+* Continued decorating the robot
 
 ## 09/12/2025
+
+This week we have:
+* Fixed the issue of one of the wheels not working (fix: replace h-bridge)
+* Finished decorating the robot (stickers)
