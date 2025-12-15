@@ -109,3 +109,5 @@ This week we have:
 This week we have:
 * Fixed the issue of one of the wheels not working (fix: replace h-bridge)
 * Finished decorating the robot (stickers)
+
+The performance was a success! I recorded many photos and videos which I will upload here soon.
